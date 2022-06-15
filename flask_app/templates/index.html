@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class=" container d-flex justify-content-around align-items-center mt-5">
+        <form action="/email/create" method="POST" class="flex-column bg-info text-dark p-3" style="width: 500px;">
+            <!-- declare a variable called messages -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}<!-- check if there are any messages -->
+                    {% for message in messages %}<!-- loop through the messages -->
+                        <p class="text-danger">{{message}}</p><!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label class="form-label">Email:</label>
+            <input type="text" class="form-control mb-3" name="email_address" placeholder="Email">
+            <button class="btn btn-warning mb-3">Add Email</button>
+        </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
